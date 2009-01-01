@@ -13,3 +13,9 @@ class String
     File.join(self, subfile.to_s)
   end
 end
+class Dir
+  # Intended to require all of the rb files in a directory (recursive)
+  def self.recursive_require(path)
+    Dir.glob("#{path}/*.rb").each {|f| require f}
+  end
+end
